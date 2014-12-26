@@ -1,0 +1,25 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.checklist.ContactList" >
+
+    <item
+        android:id="@+id/edit_contact"
+        android:icon="@drawable/edit_icon"
+        android:orderInCategory="3"
+        android:showAsAction="always"
+        android:title="@string/edit"/>
+    <item
+        android:id="@+id/refresh_contactlist"
+        android:icon="@drawable/refresh_icon"
+        android:orderInCategory="2"
+        android:showAsAction="always"
+        android:title="@string/refresh"/>
+    <item
+        android:id="@+id/add_contact"
+        android:icon="@drawable/add_icon"
+        android:orderInCategory="1"
+        android:showAsAction="always"
+        android:title="@string/add"/>
+
+</menu>

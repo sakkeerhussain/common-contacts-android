@@ -1,0 +1,14 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.checklist.NewContact" >
+
+    <item
+        android:id="@+id/go_back"
+        android:orderInCategory="100"
+        android:title="@string/back"
+        android:showAsAction="always" 
+        android:icon="@drawable/go_back_icon"/>
+
+
+</menu>

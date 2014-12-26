@@ -1,0 +1,113 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
+    tools:context="com.example.checklist.NewContact" >
+
+    
+    <ProgressBar
+        android:id="@+id/progressBarNewContact"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true" />
+    
+    <ImageView
+        android:id="@+id/imageView_new"
+        android:layout_width="150dp"
+        android:layout_height="120dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
+        android:contentDescription="@string/content_description"
+        android:onClick="startImagePicker"
+        android:scaleType="fitXY" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        style="?android:attr/buttonBarButtonStyle"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/phone_no_new"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="15dp"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/cancel_button"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="onCancel"
+            android:text="@string/cancel" />
+
+        <Button
+            android:id="@+id/save_button"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="onSave"
+            android:text="@string/save" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/editText1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/imageView_new"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/imageView_new"
+        android:background="@color/background"
+        android:ems="10"
+        android:text="@string/name"
+        android:textColor="@color/menu_item_background"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/name_new"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editText1"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/imageView_new"
+        android:ems="10"
+        android:inputType="textCapWords"
+        android:textSize="18sp" />
+  
+    <TextView
+        android:id="@+id/editText2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/name_new"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/imageView_new"
+        android:background="@color/background"
+        android:ems="10"
+        android:text="@string/phone"
+        android:textColor="@color/menu_item_background"
+        android:textSize="18sp" />
+      
+    <EditText
+        android:id="@+id/phone_no_new"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editText2"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/imageView_new"
+        android:ems="10"
+        android:inputType="phone"
+        android:textSize="18sp" />
+
+
+</RelativeLayout>

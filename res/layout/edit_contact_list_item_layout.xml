@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal" >
+
+    <ImageView
+        android:id="@+id/contact_image_edit"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="4dp"
+        android:contentDescription="@string/content_description_share_image"
+        android:scaleType="fitXY"
+        android:src="@drawable/share_icon" >
+    </ImageView>
+
+    <TextView
+        android:id="@+id/phone_no"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/contact_image_edit"
+        android:layout_alignLeft="@+id/name"
+        android:paddingBottom="2dp"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/phone_no"
+        android:layout_toRightOf="@+id/contact_image_edit"
+        android:textSize="26sp" />
+
+    <CheckBox
+        android:id="@+id/checkBoxVisibility"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="22dp"
+        android:checked="true" />
+
+</RelativeLayout>
