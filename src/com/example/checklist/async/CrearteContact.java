@@ -18,12 +18,24 @@ import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.util.Base64;
 import android.util.Log;
+import android.view.View;
+import android.widget.ProgressBar;
 
 import com.example.checklist.Utilities;
 import com.example.checklist.models.ContactItem;
 
 public class CrearteContact extends AsyncTask<ContactItem, Void, Boolean> {
-
+		
+	private ProgressBar spinner;
+	public CrearteContact(ProgressBar spinner){
+		this.spinner = spinner;
+	}
+	
+	@Override
+	protected void onPreExecute() {
+		spinner.setVisibility(View.VISIBLE);
+	}
+	
 	@Override
 	protected Boolean doInBackground(ContactItem... params) {
 		ContactItem c = params[0];
@@ -87,4 +99,17 @@ public class CrearteContact extends AsyncTask<ContactItem, Void, Boolean> {
 		}
 	}
 
+	@Override
+	protected void onPostExecute(Boolean result) {
+		spinner.setVisibility(View.VISIBLE);
+		if(result){
+			Log.d("contact new ", "Contact created successfully");
+//			Utilities.showToast(getApplicationContext(), (CharSequence)"Contact created successfully", Toast.LENGTH_SHORT);
+//			setResult(Activity.RESULT_OK);
+//			finish();
+		}else{
+			Log.e("contact new ", "Contact creation failed");
+//			Utilities.showToast(getApplicationContext(), (CharSequence)"Contact creation failed", Toast.LENGTH_SHORT);
+		}
+	}
 }
