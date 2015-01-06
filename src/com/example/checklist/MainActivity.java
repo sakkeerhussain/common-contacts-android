@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.example.checklist.adapters.MainListAdapter;
 import com.example.checklist.models.ListItem;
+import com.example.checklist.utilities.Utilities;
 
 public class MainActivity extends Activity {
 

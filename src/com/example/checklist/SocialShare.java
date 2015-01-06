@@ -25,6 +25,7 @@ import android.widget.TextView.OnEditorActionListener;
 
 import com.example.checklist.adapters.FullScreenImageAdapter;
 import com.example.checklist.adapters.FullScreenImageAdapterSocialShare;
+import com.example.checklist.utilities.Utilities;
 
 public class SocialShare extends Activity {
 

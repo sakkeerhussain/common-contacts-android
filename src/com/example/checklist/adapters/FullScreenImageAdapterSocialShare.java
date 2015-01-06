@@ -16,7 +16,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.checklist.R;
-import com.example.checklist.Utilities;
+import com.example.checklist.utilities.Utilities;
 
 
 public class FullScreenImageAdapterSocialShare extends FullScreenImageAdapter{

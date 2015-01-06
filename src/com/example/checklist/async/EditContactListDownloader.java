@@ -15,9 +15,9 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 
 import com.example.checklist.EditContactList;
-import com.example.checklist.Utilities;
 import com.example.checklist.adapters.EditContactListAdapter;
 import com.example.checklist.models.ContactItem;
+import com.example.checklist.utilities.Utilities;
 
 public class EditContactListDownloader extends AsyncTask<String, Void , JSONArray> {
 
@@ -53,7 +53,7 @@ public class EditContactListDownloader extends AsyncTask<String, Void , JSONArra
 		String url = params[0];
 		try {
 			Log.d("contact list", "contact list (all) download started");
-			return Utilities.getJSONfromURL(url);
+			return Utilities.getJSONfromURL(url, context);
 		} catch (Exception e) {
 			return null;
 		}

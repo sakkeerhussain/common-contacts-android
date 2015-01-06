@@ -1,6 +1,7 @@
 package com.example.checklist;
 
 import com.example.checklist.async.ContactListUpdater;
+import com.example.checklist.utilities.Utilities;
 
 import android.app.Activity;
 import android.content.Context;
@@ -110,7 +111,7 @@ public class SingleContact extends Activity {
 			url+="?id="+id+"&visibility="+visString;
 
 
-			ContactListUpdater cListUpdater = new ContactListUpdater();
+			ContactListUpdater cListUpdater = new ContactListUpdater(this, "One%20Contact%20edited");
 			cListUpdater.execute(url);
 
 		} else {
@@ -134,7 +135,7 @@ public class SingleContact extends Activity {
 			String url = "http://checklist.host56.com/checklist/delete_contact.php";
 			url+="?id="+id;
 
-			ContactListUpdater cListUpdater = new ContactListUpdater();
+			ContactListUpdater cListUpdater = new ContactListUpdater(this,"One%20Contact%20deleted");
 			cListUpdater.execute(url);
 
 		} else {

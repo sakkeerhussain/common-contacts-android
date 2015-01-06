@@ -1,6 +1,7 @@
 package com.example.checklist;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -14,7 +15,9 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.example.checklist.threds.CreateContact;
+import com.example.checklist.async.CreateContact;
+import com.example.checklist.models.ContactItem;
+import com.example.checklist.utilities.Utilities;
 
 public class NewContact extends Activity {
 
@@ -93,36 +96,45 @@ public class NewContact extends Activity {
 
 		String name = txtName.getText().toString();
 		String phone = txtPhoneNumber.getText().toString();
-		CreateContact c = new CreateContact(name, phone, image, true, false );
-		c.start();
-		int i=0;
-		while(!c.finished && i < 15){
-			try {
-				Thread.sleep(1000);
-				i++;
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-		}
-
-		Log.e("i",String.valueOf(i));
-
-		if(i>=15){
-			Utilities.showToast(getApplicationContext(), (CharSequence)"Server not responding", Toast.LENGTH_SHORT);
+		if(Utilities.checkNetwork((Context)this)){
+			ContactItem c = new ContactItem(0, name, phone, "", true );
+			c.setBitmapImage(image);
+			CreateContact ccObject = new CreateContact((Context)this, spinner);
+			ccObject.execute(c);
 		}else{
-
-
-			if(c.success){
-				Log.d("contact new ", "Contact created successfully");
-				Utilities.showToast(getApplicationContext(), (CharSequence)"Contact created successfully", Toast.LENGTH_SHORT);
-				setResult(Activity.RESULT_OK);
-				finish();
-			}else{
-				Log.e("contact new ", "Contact creation failed");
-				Utilities.showToast(getApplicationContext(), (CharSequence)"Contact creation failed", Toast.LENGTH_SHORT);
-			}
+			Utilities.showToast(getBaseContext(), (CharSequence)"No network connection", Toast.LENGTH_SHORT);
 		}
-		spinner.setVisibility(View.GONE);
+				
+//		CreateContact c = new CreateContact(name, phone, image, true, false );
+//		c.start();
+//		int i=0;
+//		while(!c.finished && i < 15){
+//			try {
+//				Thread.sleep(1000);
+//				i++;
+//			} catch (InterruptedException e) {
+//				e.printStackTrace();
+//			}
+//		}
+//
+//		Log.e("i",String.valueOf(i));
+//
+//		if(i>=15){
+//			Utilities.showToast(getApplicationContext(), (CharSequence)"Server not responding", Toast.LENGTH_SHORT);
+//		}else{
+//
+//
+//			if(c.success){
+//				Log.d("contact new ", "Contact created successfully");
+//				Utilities.showToast(getApplicationContext(), (CharSequence)"Contact created successfully", Toast.LENGTH_SHORT);
+//				setResult(Activity.RESULT_OK);
+//				finish();
+//			}else{
+//				Log.e("contact new ", "Contact creation failed");
+//				Utilities.showToast(getApplicationContext(), (CharSequence)"Contact creation failed", Toast.LENGTH_SHORT);
+//			}
+//		}
+//		spinner.setVisibility(View.GONE);
 	}
 
 

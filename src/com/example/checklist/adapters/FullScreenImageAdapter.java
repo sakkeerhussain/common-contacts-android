@@ -18,7 +18,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.checklist.R;
-import com.example.checklist.Utilities;
+import com.example.checklist.utilities.Utilities;
 
 public class FullScreenImageAdapter extends PagerAdapter {
 

@@ -49,6 +49,7 @@ public class ContactItem {
 	public void setVisibility(Boolean visibility) {
 		this.visibility = visibility;
 	}
+	
 	public ContactItem(int id, String name, String phone_no, String image, Boolean visibility) {
 		super();
 		this.id = id;
@@ -57,6 +58,7 @@ public class ContactItem {
 		this.phone_no = phone_no;
 		this.visibility = visibility;
 	}
+	
 	
 	
 }

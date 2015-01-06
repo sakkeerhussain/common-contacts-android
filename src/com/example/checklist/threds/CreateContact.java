@@ -18,7 +18,7 @@ import android.graphics.Bitmap;
 import android.util.Base64;
 import android.util.Log;
 
-import com.example.checklist.Utilities;
+import com.example.checklist.utilities.Utilities;
 
 public class CreateContact extends Thread {
 	/////fields

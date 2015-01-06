@@ -15,7 +15,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 
 import com.example.checklist.R;
-import com.example.checklist.Utilities;
+import com.example.checklist.utilities.Utilities;
 
 
 public class ImageAdapter extends BaseAdapter {

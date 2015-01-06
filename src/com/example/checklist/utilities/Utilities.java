@@ -340,13 +340,15 @@ public class Utilities {
 		
 		Intent resultIntent = new Intent(mContext, ContactList.class);
 		resultIntent.putExtra("update_request", true);
-
+		resultIntent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+		
+		
 		PendingIntent resultPendingIntent =
 		    PendingIntent.getActivity(
 		    mContext,
 		    0,
 		    resultIntent,
-		    PendingIntent.FLAG_CANCEL_CURRENT
+		    PendingIntent.FLAG_UPDATE_CURRENT
 		);
 
 		//Build the notification using Notification.Builder

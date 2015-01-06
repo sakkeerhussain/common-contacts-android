@@ -14,17 +14,17 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 
-import com.example.checklist.Utilities;
 import com.example.checklist.adapters.ContactListAdapter;
 import com.example.checklist.models.ContactItem;
+import com.example.checklist.utilities.Utilities;
 
 public class ContactListDownloader extends AsyncTask<String, Void , JSONArray> {
 
-	private static Context context;
+	private Context context;
 	private ContactListAdapter adapter;
 	private ArrayList<ContactItem> itemlist = new ArrayList<ContactItem>();
 	private ListView listView;
-//	private Toast toast;
+	//	private Toast toast;
 	private ProgressBar spinner; 
 
 	@SuppressLint("ShowToast")
@@ -35,15 +35,15 @@ public class ContactListDownloader extends AsyncTask<String, Void , JSONArray> {
 		this.spinner = spinner;
 
 		//initializations
-//		toast = Toast.makeText(c, (CharSequence)"Loading contacts...", Toast.LENGTH_LONG);
+		//		toast = Toast.makeText(c, (CharSequence)"Loading contacts...", Toast.LENGTH_LONG);
 	}
 
 	@Override
 	protected void onPreExecute() {       
 		super.onPreExecute();
-//		listView.setVisibility(View.GONE);
+		//		listView.setVisibility(View.GONE);
 		spinner.setVisibility(View.VISIBLE);
-//		toast.show();
+		//		toast.show();
 	}
 
 	@Override
@@ -51,7 +51,11 @@ public class ContactListDownloader extends AsyncTask<String, Void , JSONArray> {
 		String url = params[0];
 		try {
 			Log.d("contact list", "contact list download started");
-			return Utilities.getJSONfromURL(url);
+			
+			
+			
+			
+			return Utilities.getJSONfromURL(url, context);
 		} catch (Exception e) {
 			return null;
 		}
@@ -68,11 +72,19 @@ public class ContactListDownloader extends AsyncTask<String, Void , JSONArray> {
 				String name=jsonobject .getString("name");
 				String phone_no=jsonobject .getString("phone_no");
 				String image = jsonobject.getString("image");
-				Boolean visibility = true;
-				Log.d("contact list", i +". ("+id+")"+name+" - "+phone_no+"\n");
-
-				ContactItem c = new ContactItem(id, name, phone_no, image, visibility);
-				itemlist.add(c);
+				String visStr = jsonobject.getString("visibility");
+				Boolean visibility;
+				if(visStr.equals("1")){
+					visibility = true;
+				}else{
+					visibility = false;
+				}
+				if(visibility){
+					Log.d("contact list", i +". ("+id+")"+name+" - "+phone_no+"\n");
+	
+					ContactItem c = new ContactItem(id, name, phone_no, image, visibility);
+					itemlist.add(c);
+				}
 			}
 
 
@@ -86,10 +98,14 @@ public class ContactListDownloader extends AsyncTask<String, Void , JSONArray> {
 
 		adapter = new ContactListAdapter(itemlist, context);
 		listView.setAdapter(adapter);
-//		toast.cancel();
+		//		toast.cancel();
 		spinner.setVisibility(View.GONE);
-//		listView.setVisibility(View.VISIBLE);
+		//		listView.setVisibility(View.VISIBLE);
 		Log.d("contact list", "contact list displaying completed");
+		
+		///creating notification
+		//Utilities.createNotification("Contact List", "Contact List refreshed", context);
+
 	}
 
 }

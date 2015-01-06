@@ -13,6 +13,7 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 
 import com.example.checklist.adapters.TileImageAdapter;
+import com.example.checklist.utilities.Utilities;
 
 public class ImageGalleryTileView extends Activity {
 	GridView myGrid;
