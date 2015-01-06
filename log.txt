@@ -1,0 +1,1 @@
+01-05 17:55:38.150: D/GCM(28062): Url sent  : http://checklist.host56.com/checklist/gcm/send.php?device_id=d16a99ded9bd5bb3&message=one_contact_added_to_contact_list
