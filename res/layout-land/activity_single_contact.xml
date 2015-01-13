@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="10dp"
-    tools:context="com.example.checklist.SingleContact" >
+    tools:context="com.contacts.common_contacts.SingleContact" >
 
     <ImageView
         android:id="@+id/imageView1"
@@ -15,7 +15,7 @@
         android:layout_alignParentTop="true"
         android:contentDescription="@string/content_description"
         android:scaleType="fitXY"
-        android:src="@drawable/profile_pic_sample" />
+        android:src="@drawable/sample_profile_pic" />
 
     <LinearLayout
         android:id="@+id/linearLayout2"

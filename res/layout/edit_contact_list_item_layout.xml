@@ -6,13 +6,14 @@
 
     <ImageView
         android:id="@+id/contact_image_edit"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_marginLeft="4dp"
         android:layout_marginRight="10dp"
         android:layout_marginTop="4dp"
-        android:contentDescription="@string/content_description_share_image"
+        android:contentDescription="@string/content_description"
         android:scaleType="fitXY"
+        android:layout_margin="7dp"
         android:src="@drawable/share_icon" >
     </ImageView>
 
@@ -23,6 +24,7 @@
         android:layout_alignBottom="@+id/contact_image_edit"
         android:layout_alignLeft="@+id/name"
         android:paddingBottom="2dp"
+        android:text="@string/sample_phone"
         android:textSize="18sp" />
 
     <TextView
@@ -31,6 +33,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/phone_no"
         android:layout_toRightOf="@+id/contact_image_edit"
+        android:text="@string/sample_name"
         android:textSize="26sp" />
 
     <CheckBox
